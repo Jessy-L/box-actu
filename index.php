@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['logged_in']["login"])){
+if (!isset($_SESSION['logged_in']["login"])) {
     $_SESSION["connexion"] = 0;
-}else{
+} else {
     $_SESSION["connexion"] = $_SESSION['logged_in']["id"];
 }
 
@@ -20,6 +20,8 @@ if(!isset($_SESSION['logged_in']["login"])){
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/connexion.css">
+    <link rel="stylesheet" href="css/formAjoutArticle.css">
+    <link rel="stylesheet" href="css/formEditArticle.css">
     <title>SITE FAQ</title>
 </head>
 
@@ -39,7 +41,7 @@ if(!isset($_SESSION['logged_in']["login"])){
         } else {
             require_once($_GET['page'] . ".php");
         }
-        ?>    
+        ?>
     </div>
 
     <?php
