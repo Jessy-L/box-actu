@@ -1,11 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['logged_in']["login"])) {
+if (!isset($_SESSION['logged_in']["pseudo"])) {
     $_SESSION["connexion"] = 0;
 } else {
-    $_SESSION["connexion"] = $_SESSION['logged_in']["id"];
+    $_SESSION["connexion"] = $_SESSION['logged_in']["iduser"];
 }
+
+
 
 ?>
 
@@ -15,25 +17,22 @@ if (!isset($_SESSION['logged_in']["login"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/accueil.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/connexion.css">
-    <link rel="stylesheet" href="css/formAjoutArticle.css">
-    <link rel="stylesheet" href="css/formEditArticle.css">
-    <title>SITE FAQ</title>
+    <?php  
+        require_once('link.php')
+    ?>
+    <title>BOX ACTU</title>
 </head>
 
 <body>
 
     <?php
-    require_once('header.php')
+        require_once('header.php')
     ?>
+
+    
+    <?php require_once('nav.php') ?>
+
     <div class="corps_page">
-        <?php
-        require_once('nav.php')
-        ?>
 
         <?php
         if (!isset($_GET['page']) || !file_exists($_GET['page'] . '.php')) {
@@ -45,7 +44,12 @@ if (!isset($_SESSION['logged_in']["login"])) {
     </div>
 
     <?php
-    require_once('footer.php')
+        require_once('footer.php')
+    ?>
+
+
+    <?php
+        require_once('script_js.php')
     ?>
 </body>
 
